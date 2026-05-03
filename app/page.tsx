@@ -156,7 +156,7 @@ export default function MainPage() {
                         </button>
                         {isActive && (
                             <button onClick={() => setTimeLeft(0)} className="bg-white text-black w-14 h-14 flex items-center justify-center rounded-full shadow-[0_6px_0_rgb(235,235,235)] hover:translate-y-1 hover:shadow-[0_4px_0_rgb(235,235,235)] transition-all">
-                                <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6v12l8.5-6L6 6zm10 0v12h2V6h-2z" /></svg>
+                                <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" /></svg>
                             </button>
                         )}
                     </div>
