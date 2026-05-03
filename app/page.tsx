@@ -25,7 +25,7 @@ export default function MainPage() {
 
     const fetchTasks = async () => {
         try {
-            const token = localStorage.getItem("token");
+            const token = sessionStorage.getItem("token");
             if (!token) return;
             const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/tasks`, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -37,7 +37,7 @@ export default function MainPage() {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         if (!token) {
             router.push("/login");
         } else {
@@ -77,7 +77,7 @@ export default function MainPage() {
         if (!newTaskTitle.trim()) return;
         
         try {
-            const token = localStorage.getItem("token");
+            const token = sessionStorage.getItem("token");
             await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/tasks`, 
                 { title: newTaskTitle, focusDuration: themes.pomodoro.duration },
                 { headers: { Authorization: `Bearer ${token}` } }
@@ -92,7 +92,7 @@ export default function MainPage() {
 
     const handleUpdateStatus = async (taskId: number, currentStatus: string) => {
         try {
-            const token = localStorage.getItem("token");
+            const token = sessionStorage.getItem("token");
             const newStatus = currentStatus === "completed" ? "pending" : "completed";
             await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/tasks/${taskId}/status`, 
                 { status: newStatus },
@@ -107,7 +107,7 @@ export default function MainPage() {
     const handleDeleteTask = async (taskId: number) => {
         if (!confirm("Are you sure you want to delete this task?")) return;
         try {
-            const token = localStorage.getItem("token");
+            const token = sessionStorage.getItem("token");
             await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/tasks/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });

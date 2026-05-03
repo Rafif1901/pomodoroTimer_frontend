@@ -20,7 +20,7 @@ export default function LoginPage() {
                 password,
             });
             
-            localStorage.setItem("token", response.data.token);
+            sessionStorage.setItem("token", response.data.token);
             router.push("/");
         } catch (err: any) {
             setError(err.response?.data?.message || "Login failed, please try again.");
